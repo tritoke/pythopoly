@@ -6,6 +6,7 @@ class Player:
     board_position = 0
     player_id = None  # make this a large random key known only to the server
     ip_address = None
+    properties = []
 
     def __init__(self, *, name, player_id, ip_address):
         self.name = name
@@ -26,3 +27,9 @@ class Player:
 
     def update_board_position(self, places):
         self.board_position = (self.board_position + places) % board_length
+
+    def get_properties(self):
+        return self.properties
+
+    def set_properties(self, properties):
+        self.properties = properties
