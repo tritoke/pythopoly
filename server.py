@@ -70,9 +70,10 @@ def main():
     # board_positions = Pythopoly.generate_board(players)
     # Pythopoly.draw_board(board_positions)
     # send_board(player_list=players, board_positions=board_positions)
-    with open("chance") as file:
-        for i in file.readlines():
-            print(i.replace("$", "\n"))
+    with open("community_chest") as file:
+        cards = file.read().split("$")
+        for i in cards:
+            print(i)
 
 
 main()
