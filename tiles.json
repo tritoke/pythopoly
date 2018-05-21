@@ -1,0 +1,240 @@
+{"tiles":[
+  {"0":"GO"},
+  {"1":"BISHOPSGATE", "rent":[
+    20,
+    100,
+    300,
+    900,
+    1600,
+    2500
+  ], "house_price":500,
+  "mortgage":300},
+  {"2": "COMMUNITY CHEST"},
+  {"3":"BRICK LANE", "rent":[
+    40,
+    200,
+    600,
+    1800,
+    3200,
+    4500
+  ], "house_price":500,
+  "mortgage":300},
+  {"4":"INCOME TAX"},
+  {"5":"LONDON CITY AIRPORT", "num_airports":[
+    250,
+    500,
+    1000,
+    2000
+  ], "mortgage":1000},
+  {"6":"FULHAM BROADWAY", "rent":[
+    60,
+    300,
+    900,
+    2700,
+    4000,
+    5500
+  ], "house_price":500,
+  "mortgage":500},
+  {"7": "CHANCE"},
+  {"8":"CAMDEN HIGH STREET", "rent":[
+    60,
+    300,
+    900,
+    2700,
+    4000,
+    5500
+  ], "house_price":500,
+  "mortgage":500},
+  {"9":"EARL'S COURT ROAD", "rent":[
+    80,
+    400,
+    1000,
+    3000,
+    4500,
+    6000
+  ], "house_price":500,
+    "mortgage":600},
+  {"10":"JUST VISITING"},
+  {"11":"BRIXTON HILL", "rent":[
+    100,
+    500,
+    1500,
+    4500,
+    6250,
+    7500
+  ],
+  "house_price":1000,
+  "mortgage":700},
+  {"12":"MOBILE PHONE SERVICE"},
+  {"13":"LIMEHOUSE", "rent":[
+    100,
+    500,
+    1500,
+    4500,
+    6250,
+    7500
+  ], "house_price":1000,
+  "mortgage":700},
+  {"14":"CANARY WHARF", "rent":[
+    120,
+    600,
+    1800,
+    5000,
+    7000,
+    9000
+  ], "house_price":1000,
+  "mortgage":800},
+  {"15":"STANSTEAD AIRPORT", "num_airports":[
+    250,
+    500,
+    1000,
+    2000
+  ], "mortgage":1000},
+  {"16":"WARDOUR STREET", "rent":[
+    140,
+    700,
+    2000,
+    5500,
+    7500,
+    9500
+  ], "house_price":1000,
+  "mortgage":900},
+  {"17":"COMMUNITY CHEST"},
+  {"18":"HAMMERSMITH", "rent":[
+    140,
+    700,
+    2000,
+    5500,
+    7500,
+    9500
+  ], "house_price":1000,
+  "mortgage":900},
+  {"19":"SHAFTESBURY AVENUE", "rent":[
+    160,
+    800,
+    2200,
+    6000,
+    8000,
+    10000
+  ], "house_price":1000,
+  "mortgage":1000},
+  {"20":"FREE PARKING"},
+  {"21":"WAPPING", "rent":[
+    180,
+    900,
+    2500,
+    7000,
+    8750,
+    10500
+  ], "house_price":1500,
+  "mortgage":1100},
+  {"22":"CHANCE"},
+  {"23":"OLD STREET", "rent":[
+    180,
+    900,
+    2500,
+    7000,
+    8750,
+    10500
+  ], "house_price":1500,
+  "mortgage":1100},
+  {"24":"ST. KATHARINE DOCKS", "rent":[
+    200,
+    1000,
+    3000,
+    7500,
+    9250,
+    11000
+  ], "house_price":1500,
+  "mortgage":1200},
+  {"25":"GATWICK AIRPORT", "num_airports":[
+    250,
+    500,
+    1000,
+    2000
+  ], "mortgage":1000},
+  {"26":"PRIMROSE HILL", "rent":[
+    220,
+    1100,
+    3300,
+    8000,
+    9750,
+    11500
+  ], "house_price":1500,
+  "mortgage":1300},
+  {"27":"PORTOBELLO ROAD", "rent":[
+    220,
+    1100,
+    3300,
+    8000,
+    9750,
+    11500
+  ], "house_price":1500,
+  "mortgage":1300},
+  {"28":"INTERNET SERVICES"},
+  {"29":"NOTTING HILL GATE", "rent":[
+    240,
+    1200,
+    3600,
+    8500,
+    10250,
+    12000
+  ], "house_price":1500,
+  "mortgage":1400},
+  {"30":"JAIL"},
+  {"31":"SAVILE ROW", "rent":[
+    260,
+    1300,
+    3900,
+    900,
+    11000,
+    12750
+  ], "house_price":2000,
+  "mortgage":1500},
+  {"32":"OXFORD STREET", "rent":[
+    260,
+    1300,
+    3900,
+    9000,
+    11000,
+    12750
+  ], "house_price":2000,
+  "mortgage":1500},
+  {"33":"COMMUNITY CHEST"},
+  {"34":"KING'S ROAD", "rent":[
+    280,
+    1500,
+    4500,
+    10000,
+    12000,
+    14000
+  ], "house_price":2000,
+  "mortgage":1600},
+  {"35":"HEATHROW AIRPORT", "num_airports":[
+    250,
+    500,
+    1000,
+    2000
+  ], "mortgage":1000},
+  {"36":"CHANCE"},
+  {"37":"KNIGHTSBRIDGE", "rent":[
+    350,
+    1750,
+    5000,
+    11000,
+    13000,
+    15000
+  ], "house_price":2000,
+  "mortgage":1750},
+  {"38":"SUPER TAX"},
+  {"39":"KENSINGTON PALACE GARDENS", "rent":[
+    500,
+    2000,
+    6000,
+    14000,
+    17000,
+    20000
+  ], "house_price":2000,
+  "mortgage":2000},
+  {"40":"IN JAIL"}
+]}
