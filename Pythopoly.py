@@ -1,5 +1,7 @@
 from random import randint
+import json
 
+board_length = 40
 corner_positions = [0, 10, 20, 30, 40]
 # these are the positions of the corners
 long_name_positions = [13, 18, 33, 36]
@@ -28,6 +30,7 @@ def generate_board(players):
     return board_list
 
 
+# prints a representation of the board based on the current position of the players
 def draw_board(board_positions):
     with open("board") as board:
         out = board.read()
@@ -42,3 +45,11 @@ def draw_board(board_positions):
             replace = f"{buffer}{board_positions[i]}{buffer}"
             out = out.replace(board_dict[i], replace)
     print(out)
+
+
+def get_tile_data(tile_id):
+    with open("tiles.json", "r") as file:
+        loaded_data = json.load(file)["tiles"]
+        return loaded_data[tile_id]
+
+#TODO encode the community_chest and chance

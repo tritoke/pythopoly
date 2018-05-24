@@ -66,14 +66,12 @@ def send_board(*, player_list, board_positions):
 
 def main():
     # start_game()
-    # players.append(Player(name="Sam", player_id=1, ip_address="HOST"))
+    players.append(Player(name="Sam", player_id=1, ip_address="HOST"))
     # board_positions = Pythopoly.generate_board(players)
     # Pythopoly.draw_board(board_positions)
     # send_board(player_list=players, board_positions=board_positions)
-    with open("community_chest") as file:
-        cards = file.read().split("$")
-        for i in cards:
-            print(i)
+
+    exec("players[0]." + Pythopoly.get_tile_data(2)["action"])
 
 
 main()
