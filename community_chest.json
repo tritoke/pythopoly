@@ -1,0 +1,66 @@
+{"cards":[
+  {"message":"get out of jail free.",
+  "actions":[
+    "get_out_of_jail += 1"
+  ]},
+  {"message":"you take dance lessons with a celebrity coach.\npay 500K.",
+  "actions":[
+    "money -= 500"
+  ]},
+  {"message":"advance to go.",
+  "actions":[
+    "board_position = 0",
+    "money += 2000"
+  ]},
+  {"message":"you organise the festival at notting hill gate.\ncollect 250K for your services.",
+  "actions":[
+    "money += 250"
+  ]},
+  {"message":"you appear on morning TV to promote your new book.\nrecieve 100K from increased sales.",
+  "actions":[
+    "money += 100"
+  ]},
+  {"message":"landscape gardens at all your properties.\npay 400K per house,\npay 1.15M per hotel.",
+  "actions":[
+    "money -= 400 * houses",
+    "money -= 1150 * hotels"
+  ]},
+  {"message":"you are a runner up on a reality TV show.\ncollect 100K.",
+  "actions":[
+    "money += 100"
+  ]},
+  {"message":"win big at the casion in knightsbridge.\ncollect 1M.",
+  "actions":[
+    "money += 1000"
+  ]},
+  {"message":"your trust fund matures.\ncollect 500K.",
+  "actions":[
+    "money += 500"
+  ]},
+  {"message":"go to jail.",
+  "actions":[
+    "set_board_position = 40"
+  ]},
+  {"message":"you run for mayor.\ncollect 100k from each player as constituent support.",
+  "actions":[
+    "money += 500"
+  ]}
+]}
+
+go to jail.
+$
+you run for mayor.
+collect 100K from each player as constituent support.
+$
+you owe back taxes.
+pay 500K in fines.
+$
+your computer network is hit with a virus.
+pay 1M.
+$
+sell your lifetime football tickets on e-bay.
+collect 200K.
+$
+get your big break on the west end stage.
+sign a five-year contract.
+collect 2M.

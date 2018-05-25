@@ -64,14 +64,15 @@ def send_board(*, player_list, board_positions):
             board_socket.send(data)
 
 
+
 def main():
     # start_game()
     players.append(Player(name="Sam", player_id=1, ip_address="HOST"))
     # board_positions = Pythopoly.generate_board(players)
     # Pythopoly.draw_board(board_positions)
     # send_board(player_list=players, board_positions=board_positions)
+    success = exec("players[0]." + Pythopoly.get_tile_data(2)["action"])
 
-    exec("players[0]." + Pythopoly.get_tile_data(2)["action"])
 
 
 main()

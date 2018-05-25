@@ -1,5 +1,5 @@
 from random import randint
-import json
+from json import load
 
 board_length = 40
 corner_positions = [0, 10, 20, 30, 40]
@@ -49,7 +49,7 @@ def draw_board(board_positions):
 
 def get_tile_data(tile_id):
     with open("tiles.json", "r") as file:
-        loaded_data = json.load(file)["tiles"]
+        loaded_data = load(file)["tiles"] # this loads the data from the file
         return loaded_data[tile_id]
 
-#TODO encode the community_chest and chance
+#TODO encode the community_chest.json and chance

@@ -1,4 +1,5 @@
 from random import randint
+from json import load
 import Pythopoly
 
 
@@ -11,6 +12,8 @@ class Player:
     get_out_of_jail = 0
     money = 25000
     properties = []
+    houses = 0
+    hotels = 0
 
     def __init__(self, *, name, player_id, ip_address):
         self.name = name
@@ -29,8 +32,14 @@ class Player:
     def get_ip_address(self):
         return self.ip_address
 
-    def update_board_position(self, places):
+    def move(self, places):
+        if self.board_position + places > Pythopoly.board_length:
+            self.money += 2000
+
         self.board_position = (self.board_position + places) % Pythopoly.board_length
+
+    def set_board_position(self, position):
+        self.board_position = position
 
     def get_properties(self):
         return self.properties
@@ -38,35 +47,22 @@ class Player:
     def set_properties(self, properties):
         self.properties = properties
 
-    def set_jail(self):
-        self.board_position = 40
-
-    def set_get_out_of_jail(self):
-        self.get_out_of_jail += 1
-
-    def set_money(self, amount):
-        self.money += amount
-
     def get_money(self):
         return self.money
 
-    def income_tax(self):
-        self.money -= 2000
-
-    def super_tax(self):
-        self.money -= 1000
-
-    def pass_go(self):
-        self.money += 2000
+    def set_money(self, increase):
+        self.money += increase
 
     # TODO sort out these methods and how they relate to the player
 
     # chooses a random card from community chest
-    @staticmethod
-    def community_chest():
-        with open("community_chest") as file:
-            cards = file.read().split("$")
-        return cards[randint(0, len(cards))]
+    def community_chest(self):
+        with open("community_chest.json") as file:
+            cards = load(file)["cards"]
+        card = cards[randint(0, len(cards))]
+        for action in card["actions"]:
+            exec("self." + action)
+        #TODO setup sending of the message to the client / maybe make a method to do this
 
     @staticmethod
     # chooses a random chance card
