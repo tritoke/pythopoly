@@ -70,7 +70,7 @@ def main():
     # board_positions = Pythopoly.generate_board(players)
     # Pythopoly.draw_board(board_positions)
     # send_board(player_list=players, board_positions=board_positions)
-    with open("community_chest") as file:
+    with open("community_chest.json") as file:
         cards = file.read().split("$")
         for i in cards:
             print(i)
