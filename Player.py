@@ -8,6 +8,7 @@ class Player:
     player_id = None  # make this a large random key known only to the server
     ip_address = None
     get_out_of_jail = 0
+    jail_count = 0
     money = 25000
     properties = []
     num_properties = {"houses": 0, "hotels": 0}
@@ -46,8 +47,8 @@ class Player:
     def set_board_position(self, position):
         self.board_position = position
 
-    def get_properties(self, *, type):
-        return self.properties[type]
+    def get_properties(self):
+        return self.properties
 
     def set_properties(self, properties):
         self.properties = properties
@@ -58,8 +59,8 @@ class Player:
     def set_money(self, increase):
         self.money += increase
 
-    def get_num_properties(self):
-        return self.num_properties
+    def get_num_properties(self, *, type):
+        return self.num_properties[type]
 
     def set_num_properties(self, *, houses, hotels):
         self.num_properties["houses"] += houses

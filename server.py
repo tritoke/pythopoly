@@ -7,7 +7,6 @@ import socket
 # home ip: 192.168.23.1
 # school ip: 192.168.0.192
 
-PORTNUM = 9987
 location = "home"
 # location indicates whether I am at home or at school and change the IP accordingly
 IP = {"school": "192.168.0.192", "home": "192.168.23.1"}
@@ -32,7 +31,7 @@ def start_game():
         num_players = int(input())
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind((IP[location], PORTNUM))
+    server_socket.bind((IP[location], Pythopoly.PORTNUM))
     server_socket.listen(10)
     print(f"listening on port: {PORTNUM}")
 
@@ -55,15 +54,21 @@ def start_game():
     server_socket.close()
 
 
-def send_board(*, player_list, board_positions):
-    data = bytes("_".join(board_positions), "utf-8")
-    for player in player_list:
-        if player.ip_address == "HOST":
-            Pythopoly.draw_board(board_positions)
-        else:
-            board_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            board_socket.connect((player.ip_address[0], PORTNUM))
-            board_socket.send(data)
+def send_to_all(*, player_list, data, type):
+    if type == "board":
+        data = bytes("_".join(data), "utf-8")
+        for player in player_list:
+            if player.ip_address == "HOST":
+                Pythopoly.draw_board(data)
+            else:
+                board_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                board_socket.connect((player.ip_address[0], Pythopoly.PORTNUM))
+                board_socket.send(data)
+    else:
+        print("man you gotta get round to this")
+
+def send_to_player(player):
+    player.get_ip_address()
 
 
 def pickup_card(type, player):
@@ -80,13 +85,28 @@ def pickup_card(type, player):
                 else:
                     exec("player" + card["actions"][1])
 
+def check_bankrupt(players):
+    for player in players:
+        if player.get_money() < 0:
+            if len(player.get_properties()) == 0:
+                del players[player.get_player_id() -1]
+            else:
+                net_worth = player.get_money()
+                for property in player.get_properties():
+                    net_worth += Pythopoly.get_tile_data(property)["mortgage"] #TODO sort this mess out
+                    if net_worth > 0:
+                if net_worth < 0:
+
+
+
+
 
 def main():
-    # start_game()
-    players.append(Player(name="Sam", player_id=1, ip_address="HOST"))
-    # board_positions = Pythopoly.generate_board(players)
-    # Pythopoly.draw_board(board_positions)
-    # send_board(player_list=players, board_positions=board_positions)
+    start_game()
+    board_positions = Pythopoly.generate_board(players)
+    send_to_all(player_list=players, data=board_positions, type="board")
+    current_player = randint(0, len(players))
+
 
 
 main()

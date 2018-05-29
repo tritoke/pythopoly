@@ -1,6 +1,7 @@
 from random import randint
 from json import load
 
+PORTNUM = 10000
 board_length = 40
 corner_positions = [0, 10, 20, 30, 40]
 # these are the positions of the corners

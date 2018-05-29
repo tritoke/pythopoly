@@ -42,6 +42,35 @@ def get_board():
         break
     board_socket.close()
 
+def wait_turn():
+    turn_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    turn_socket.bind((IP[location], PORTNUM))
+    turn_socket.listen(10)
+    turn = ""
+    while True:
+        connection, address = turn_socket.accept()
+        print(address)
+        received = connection.recv(1024)
+        if turn == "True" and len(received) > 0:
+
+        if len(received) > 0:
+            turn = received.decode("utf-8")
+
+        connection.close()
+        if turn != "True":
+            break
+    turn_socket.close()
+    if turn == "bankrupt":
+        return True
+    else:
+        return False
+
+
+
 
 join_game()
-get_board()
+Bankrupt = False
+while Bankrupt != True:
+    get_board()
+    Bankrupt = wait_turn()
+
