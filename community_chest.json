@@ -1,80 +1,112 @@
-{"cards":[
-  {"message":"get out of jail free.",
-    "affects":"player",
-  "actions":[
-    ".set_GOOJ(1)"
-  ]},
-  {"message":"you take dance lessons with a celebrity coach.\npay 500K.",
-    "affects":"player",
-  "actions":[
-    ".set_money(500)"
-  ]},
-  {"message":"advance to go.",
-    "affects":"player",
-  "actions":[
-    ".set_board_position(0)",
-    ".set_money(2000)"
-  ]},
-  {"message":"you organise the festival at notting hill gate.\ncollect 250K for your services.",
-    "affects":"player",
-  "actions":[
-    ".set_money(250)"
-  ]},
-  {"message":"you appear on morning TV to promote your new book.\nrecieve 100K from increased sales.",
-    "affects":"player",
-  "actions":[
-    ".set_money(100)"
-  ]},
-  {"message":"landscape gardens at all your properties.\npay 400K per house,\npay 1.15M per hotel.",
-    "affects":"player",
-  "actions":[
-    ".set_money(-400 * player.get_num_properties()['houses'])",
-    ".set_money(-1150 * player.get_num_properties()['hotels'])"
-  ]},
-  {"message":"you are a runner up on a reality TV show.\ncollect 100K.",
-    "affects":"player",
-  "actions":[
-    ".set_money(100)"
-  ]},
-  {"message":"win big at the casion in knightsbridge.\ncollect 1M.",
-    "affects":"player",
-  "actions":[
-    ".set_money(1000)"
-  ]},
-  {"message":"your trust fund matures.\ncollect 500K.",
-    "affects":"player",
-  "actions":[
-    ".set_money(500)"
-  ]},
-  {"message":"go to jail.",
-    "affects":"player",
-  "actions":[
-    ".set_board_position(40)"
-  ]},
-  {"message":"you run for mayor.\ncollect 100k from each player as constituent support.",
-    "affects":"everyone",
-  "actions":[
-    ".set_money(-100)",
-    ".set_money(100 * len(players))"
-  ]},
-  {"message":"you owe back taxes.\npay 500K in fines.",
-    "affects":"player",
-  "actions":[
-    ".set_money(-500)"
-  ]},
-  {"message":"your computer network is hit with a virus.\npay 1M.",
-    "affects":"player",
-  "actions":[
-  ".set_money(-1000)"
-  ]},
-  {"message":"sell your lifetime football tickets on e-bay.\ncollect 200K.",
-    "affects":"player",
-  "actions":[
-  ".set_money(200)"
-  ]},
-  {"message":"get your big break on the west end stage.\nsign a five-year contract.\ncollect 2M.",
-    "affects":"player",
-  "actions":[
-  ".set_money(2000)"
-  ]}
-]}
+{
+  "cards": [
+    {
+      "message": "get out of jail free.",
+      "affects": "player",
+      "actions": [
+        ".set_GOOJ(1)"
+      ]
+    },
+    {
+      "message": "you take dance lessons with a celebrity coach.\npay 500K.",
+      "affects": "player",
+      "actions": [
+        ".set_money(500)"
+      ]
+    },
+    {
+      "message": "advance to go.",
+      "affects": "player",
+      "actions": [
+        ".set_board_position(0)",
+        ".set_money(2000)"
+      ]
+    },
+    {
+      "message": "you organise the festival at notting hill gate.\ncollect 250K for your services.",
+      "affects": "player",
+      "actions": [
+        ".set_money(250)"
+      ]
+    },
+    {
+      "message": "you appear on morning TV to promote your new book.\nrecieve 100K from increased sales.",
+      "affects": "player",
+      "actions": [
+        ".set_money(100)"
+      ]
+    },
+    {
+      "message": "landscape gardens at all your properties.\npay 400K per house,\npay 1.15M per hotel.",
+      "affects": "player",
+      "actions": [
+        ".set_money(-400 * player.get_num_properties()['houses'])",
+        ".set_money(-1150 * player.get_num_properties()['hotels'])"
+      ]
+    },
+    {
+      "message": "you are a runner up on a reality TV show.\ncollect 100K.",
+      "affects": "player",
+      "actions": [
+        ".set_money(100)"
+      ]
+    },
+    {
+      "message": "win big at the casion in knightsbridge.\ncollect 1M.",
+      "affects": "player",
+      "actions": [
+        ".set_money(1000)"
+      ]
+    },
+    {
+      "message": "your trust fund matures.\ncollect 500K.",
+      "affects": "player",
+      "actions": [
+        ".set_money(500)"
+      ]
+    },
+    {
+      "message": "go to jail.",
+      "affects": "player",
+      "actions": [
+        ".set_board_position(40)"
+      ]
+    },
+    {
+      "message": "you run for mayor.\ncollect 100k from each player as constituent support.",
+      "affects": "everyone",
+      "actions": [
+        ".set_money(-100)",
+        ".set_money(100 * len(players))"
+      ]
+    },
+    {
+      "message": "you owe back taxes.\npay 500K in fines.",
+      "affects": "player",
+      "actions": [
+        ".set_money(-500)"
+      ]
+    },
+    {
+      "message": "your computer network is hit with a virus.\npay 1M.",
+      "affects": "player",
+      "actions": [
+        ".set_money(-1000)"
+      ]
+    },
+    {
+      "message": "sell your lifetime football tickets on e-bay.\ncollect 200K.",
+      "affects": "player",
+      "actions": [
+        ".set_money(200)"
+      ]
+    },
+    {
+      "message": "get your big break on the west end stage.\nsign a five-year contract.\ncollect 2M.",
+      "affects": "player",
+      "actions": [
+        ".set_money(2000)"
+      ]
+    }
+  ]
+}

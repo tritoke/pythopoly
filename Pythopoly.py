@@ -21,7 +21,7 @@ def roll_dice():
 
 
 def generate_board(players):
-    board_list = [""]*41
+    board_list = [""] * 41
     # this generates a list of length 38, filled with zeros
     for player in players:
         player_position = player.get_board_position()
@@ -36,11 +36,11 @@ def draw_board(board_positions):
         out = board.read()
         for i in range(len(board_positions)):
             if i in corner_positions:
-                x = 4 - (len(board_positions[i])//2)
+                x = 4 - (len(board_positions[i]) // 2)
             elif i in sides:
-                x = 3 - (len(board_positions[i])//2)
+                x = 3 - (len(board_positions[i]) // 2)
             else:
-                x = 2 - (len(board_positions[i])//2)
+                x = 2 - (len(board_positions[i]) // 2)
             buffer = " " * x
             replace = f"{buffer}{board_positions[i]}{buffer}"
             out = out.replace(board_dict[i], replace)
@@ -49,7 +49,7 @@ def draw_board(board_positions):
 
 def get_tile_data(tile_id):
     with open("tiles.json", "r") as file:
-        loaded_data = load(file)["tiles"] # this loads the data from the file
+        loaded_data = load(file)["tiles"]  # this loads the data from the file
         return loaded_data[tile_id]
 
-#TODO encode the community_chest.json and chance
+# TODO encode the community_chest.json and chance.json

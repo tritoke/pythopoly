@@ -10,7 +10,7 @@ class Player:
     get_out_of_jail = 0
     money = 25000
     properties = []
-    num_properties = {"houses":0, "hotels":0}
+    num_properties = {"houses": 0, "hotels": 0}
 
     def __init__(self, *, name, player_id, ip_address):
         self.name = name
@@ -34,6 +34,15 @@ class Player:
             self.money += 2000
         self.board_position = (self.board_position + places) % Pythopoly.board_length
 
+    def move_to(self, type):
+        places = {"airports": [5, 15, 25, 35], "services": [12, 28], "stanstead": [15], "canary": [14], "docks": [24]}
+        for i in places[type]:
+            if i > self.board_position:
+                self.board_position = i
+                return
+        self.board_position = places[type][0]
+        self.money += 2000
+
     def set_board_position(self, position):
         self.board_position = position
 
@@ -52,7 +61,7 @@ class Player:
     def get_num_properties(self):
         return self.num_properties
 
-    def set_num_properties(self,*, houses, hotels):
+    def set_num_properties(self, *, houses, hotels):
         self.num_properties["houses"] += houses
         self.num_properties["hotels"] += hotels
 

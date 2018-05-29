@@ -1,0 +1,119 @@
+{
+  "cards": [
+    {
+      "message": "summoned for jury duty.\ngo back three spaces.",
+      "affects": "player",
+      "actions": [
+        ".move(-3)"
+      ]
+    },
+    {
+      "message": "you have been convicted of identity theft.\ngo to jail.",
+      "affects": "player",
+      "actions": [
+        ".set_board_position(40)"
+      ]
+    },
+    {
+      "message": "city taxes go up:\nfor each house pay 250K,\nfor each hotel pay 1M.",
+      "affects": "player",
+      "actions": [
+        ".set_money(-250 * player.get_num_properties()['houses'])",
+        ".set_money(-1000 * player.get_num_properties()['hotels'])"
+      ]
+    },
+    {
+      "message": "a group of guests sue your hotel.\npay each player 500K.",
+      "affects": "everyone",
+      "actions": [
+        ".set_money(500)",
+        ".set_money(-500 * len(players))"
+      ]
+    },
+    {
+      "message": "celebrate new year's eve in style.\nadvance to kensington palace gardens.",
+      "affects": "player",
+      "actions": [
+        ".set_board_position(39)"
+      ]
+    },
+    {
+      "message": "advance to the nearest airport space.\nif unowned, you may buy it from the bank,\nif owned, pay the owner twice the rent.\nif you pass 'GO' collect 2M.",
+      "affects": "player",
+      "actions": [
+        ".move_to('airports')"
+      ]
+    },
+    {
+      "message": "advance to the nearest service provider.\nif unowned, you may buy it from the bank.\nif owned, throw dice and pay the owner 10000 times the number thrown.\nif you pass 'GO' collect 2M.",
+      "affects": "player",
+      "actions": [
+        ".move_to('services')"
+      ]
+    },
+    {
+      "message": "advance to the nearest airport space.\nif unowned, you may buy it from the bank,\nif owned, pay the owner twice the rent.\nif you pass 'GO' collect 2M.",
+      "affects": "player",
+      "actions": [
+        ".move_to('airports')"
+      ]
+    },
+    {
+      "message": "bad weather strikes! your filght is rerouted via brixton hill.\nadvanced to stanstead airport.\nif you pass 'GO' collect 2M.",
+      "affects": "player",
+      "actions": [
+        ".move_to('stanstead')"
+      ]
+    },
+    {
+      "message": "photograph bankers in their natural habitat.\nadvance to canary wharf.\nif you pass 'GO' collect 2M.",
+      "affects": "player",
+      "actions": [
+        ".move_to('canary')"
+      ]
+    },
+    {
+      "message": "make a donation to disaster relief.\npay 150K.",
+      "affects": "player",
+      "actions": [
+        ".set_money(150)"
+      ]
+    },
+    {
+      "message": "become the CEO of a high-powered investment bank.\ncollect a signing bonus of 1.5M.",
+      "affects": "player",
+      "actions": [
+        ".set_money(1500)"
+      ]
+    },
+    {
+      "message": "advance to 'GO'.",
+      "affects": "player",
+      "actions": [
+        ".set_board_position(0)",
+        ".set_money(2000)"
+      ]
+    },
+    {
+      "message": "get out of jail free!",
+      "affects": "player",
+      "actions": [
+        ".set_GOOJ(1)"
+      ]
+    },
+    {
+      "message": "get a tax saving for driving a hybrid car.\ncollect 500K.",
+      "affects": "player",
+      "actions": [
+        ".set_money(500)"
+      ]
+    },
+    {
+      "message": "take your family on a surprise holiday: advance to ST. KATHARINE DOCKS.\nif you pass 'GO' collect 2M.",
+      "affects": "player",
+      "actions": [
+        ".move_to('docks')"
+      ]
+    }
+  ]
+}

@@ -1,4 +1,6 @@
 from Player import Player
+from json import load
+from random import randint
 import Pythopoly
 import socket
 
@@ -12,11 +14,11 @@ IP = {"school": "192.168.0.192", "home": "192.168.23.1"}
 board_length = 38
 players = []
 
+
 # this dictionary stores the characters which represent each position in the board file
 
 
 def start_game():
-
     print("hello and welcome to pythopoly, you are the host of this game.")
     print("please enter your name below")
     host_name = input()
@@ -64,6 +66,20 @@ def send_board(*, player_list, board_positions):
             board_socket.send(data)
 
 
+def pickup_card(type, player):
+    with open(type + ".json") as file:
+        cards = load(file)["cards"]
+        card = cards[randint(0, len(cards))]
+        if card["affects"] == "player":
+            for action in card["actions"]:
+                exec("player" + action)
+        else:
+            for i in players:
+                if i != player:
+                    exec("i" + card["actions"][0])
+                else:
+                    exec("player" + card["actions"][1])
+
 
 def main():
     # start_game()
@@ -71,18 +87,6 @@ def main():
     # board_positions = Pythopoly.generate_board(players)
     # Pythopoly.draw_board(board_positions)
     # send_board(player_list=players, board_positions=board_positions)
-<<<<<<< HEAD
-<<<<<<< HEAD
-    success = exec("players[0]." + Pythopoly.get_tile_data(2)["action"])
-
-=======
-=======
->>>>>>> 5d80c9144402dce2f5f7aa19900a9f26ede82a6e
-    with open("community_chest.json") as file:
-        cards = file.read().split("$")
-        for i in cards:
-            print(i)
->>>>>>> 5d80c9144402dce2f5f7aa19900a9f26ede82a6e
 
 
 main()
