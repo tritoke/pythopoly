@@ -1,5 +1,3 @@
-from random import randint
-from json import load
 import Pythopoly
 
 
@@ -12,8 +10,7 @@ class Player:
     get_out_of_jail = 0
     money = 25000
     properties = []
-    houses = 0
-    hotels = 0
+    num_properties = {"houses":0, "hotels":0}
 
     def __init__(self, *, name, player_id, ip_address):
         self.name = name
@@ -35,14 +32,13 @@ class Player:
     def move(self, places):
         if self.board_position + places > Pythopoly.board_length:
             self.money += 2000
-
         self.board_position = (self.board_position + places) % Pythopoly.board_length
 
     def set_board_position(self, position):
         self.board_position = position
 
-    def get_properties(self):
-        return self.properties
+    def get_properties(self, *, type):
+        return self.properties[type]
 
     def set_properties(self, properties):
         self.properties = properties
@@ -53,21 +49,15 @@ class Player:
     def set_money(self, increase):
         self.money += increase
 
-    # TODO sort out these methods and how they relate to the player
+    def get_num_properties(self):
+        return self.num_properties
 
-    # chooses a random card from community chest
-    def community_chest(self):
-        with open("community_chest.json") as file:
-            cards = load(file)["cards"]
-        card = cards[randint(0, len(cards))]
-        for action in card["actions"]:
-            exec("self." + action)
-        #TODO setup sending of the message to the client / maybe make a method to do this
+    def set_num_properties(self,*, houses, hotels):
+        self.num_properties["houses"] += houses
+        self.num_properties["hotels"] += hotels
 
-    @staticmethod
-    # chooses a random chance card
-    def chance():
-        with open("chance") as file:
-            cards = file.read().split("$")
-        return cards[randint(0, len(cards))]
+    def set_GOOJ(self, num):
+        self.get_out_of_jail += num
 
+    def get_GOOJ(self):
+        return self.get_out_of_jail
