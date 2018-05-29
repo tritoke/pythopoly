@@ -1,52 +1,38 @@
 {"cards":[
-  {"message":"get out of jail free.",
-  "actions":[
-    "get_out_of_jail += 1"
-  ]},
-  {"message":"you take dance lessons with a celebrity coach.\npay 500K.",
-  "actions":[
-    "money -= 500"
-  ]},
-  {"message":"advance to go.",
-  "actions":[
-    "board_position = 0",
-    "money += 2000"
-  ]},
-  {"message":"you organise the festival at notting hill gate.\ncollect 250K for your services.",
-  "actions":[
-    "money += 250"
-  ]},
-  {"message":"you appear on morning TV to promote your new book.\nrecieve 100K from increased sales.",
-  "actions":[
-    "money += 100"
-  ]},
-  {"message":"landscape gardens at all your properties.\npay 400K per house,\npay 1.15M per hotel.",
-  "actions":[
-    "money -= 400 * houses",
-    "money -= 1150 * hotels"
-  ]},
-  {"message":"you are a runner up on a reality TV show.\ncollect 100K.",
-  "actions":[
-    "money += 100"
-  ]},
-  {"message":"win big at the casion in knightsbridge.\ncollect 1M.",
-  "actions":[
-    "money += 1000"
-  ]},
-  {"message":"your trust fund matures.\ncollect 500K.",
-  "actions":[
-    "money += 500"
-  ]},
-  {"message":"go to jail.",
-  "actions":[
-    "set_board_position = 40"
-  ]},
-  {"message":"you run for mayor.\ncollect 100k from each player as constituent support.",
-  "actions":[
-    "money += 500"
+  {"message":"",
+  "actions"[
+
   ]}
 ]}
-
+get out of jail free.
+$
+you take dance lessons with a celebrity coach
+pay 500K.
+$
+advance to go.
+$
+you organise the festival at Y3.
+collect 250K for your services.
+$
+you appear on morning TV to promote your new book.
+recieve 100K from increased sales.
+$
+landscape gardens at all your properties.
+pay 400K per house,
+pay 1.15M per hotel.
+$
+you are a runner up on a reality TV show.
+collect 100K.
+$
+win big at the casion in D1.
+collect 1M.
+$
+you win the lottery.
+collect 1M.
+$
+your trust fund matures.
+collect 500K.
+$
 go to jail.
 $
 you run for mayor.
