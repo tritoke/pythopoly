@@ -72,9 +72,12 @@ def main():
     # Pythopoly.draw_board(board_positions)
     # send_board(player_list=players, board_positions=board_positions)
 <<<<<<< HEAD
+<<<<<<< HEAD
     success = exec("players[0]." + Pythopoly.get_tile_data(2)["action"])
 
 =======
+=======
+>>>>>>> 5d80c9144402dce2f5f7aa19900a9f26ede82a6e
     with open("community_chest.json") as file:
         cards = file.read().split("$")
         for i in cards:
