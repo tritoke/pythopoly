@@ -4,6 +4,10 @@ from json import load
 PORTNUM = 10000
 board_length = 40
 corner_positions = [0, 10, 20, 30, 40]
+data_encoding = "utf-8"
+turn_choices = {1: "move"}
+send_options = ["playerturn"]
+# sets = [[], [], []]  # TODO finish this
 # these are the positions of the corners
 long_name_positions = [13, 18, 33, 36]
 # these are all of the positions on the sides of the board which have name longer than length 2
@@ -31,6 +35,22 @@ def generate_board(players):
     return board_list
 
 
+def display_options():
+    valid_choices = [1]
+
+    def get_choice():
+        print("It's your go, you may take one of the following actions:")
+        for key in turn_choices:
+            value = turn_choices[key]
+            print(f"enter {key} to {value}")
+        return int(input("choice >"))
+
+    choice = get_choice()
+    while choice not in valid_choices:
+        choice = get_choice()
+    return choice
+
+
 # prints a representation of the board based on the current position of the players
 def draw_board(board_positions):
     with open("board") as board:
@@ -47,10 +67,7 @@ def draw_board(board_positions):
             out = out.replace(board_dict[i], replace)
     print(out)
 
-
-def get_tile_data(tile_id):
-    with open("tiles.json", "r") as file:
-        loaded_data = load(file)["tiles"]  # this loads the data from the file
-        return loaded_data[tile_id]
-
-# TODO encode the community_chest.json and chance.json
+# def get_tile_data(tile_id):
+#     with open("tiles.json", "r") as file:
+#         loaded_data = load(file)["tiles"]  # this loads the data from the file
+#         return loaded_data[tile_id]

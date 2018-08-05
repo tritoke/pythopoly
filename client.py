@@ -1,14 +1,8 @@
 import socket
-import Pythopoly
+from Pythopoly import *
 
-# ICT 4-02
-# 192.168.0.192 me
-# 192.168.0.90 ian
-
-PORTNUM = 9987
-location = "home"
-# location indicates whether I am at home or at school and change the IP accordingly
-IP = {"school": "192.168.0.192", "home": "192.168.23.1"}
+# IP = "192.168.0.192" # school
+IP = "192.168.23.1"  # home
 # AF_INET means an ipv4 address
 # SOCK_STREAM means a tcp connection
 
@@ -20,57 +14,39 @@ user_name = input()
 
 def join_game():
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client_socket.connect((IP[location], PORTNUM))
-    client_socket.send(bytes(user_name, "utf-8"))
+    client_socket.connect((IP, PORTNUM))
+    client_socket.send(bytes(user_name, data_encoding))
     data = client_socket.recv(1024)
-    print(data.decode("utf-8"))
+    print(data.decode(data_encoding))
     client_socket.close()
 
 
-def get_board():
-    board_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    board_socket.bind((IP[location], PORTNUM))
-    board_socket.listen(10)
-    while True:
-        connection, address = board_socket.accept()
-        print(address)
-        received = connection.recv(1024)
-        if len(received) > 0:
-            board_positions = received.decode("utf-8").split("_")
-            Pythopoly.draw_board(board_positions)
-        connection.close()
-        break
-    board_socket.close()
-
-def wait_turn():
+def get_state():
     turn_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    turn_socket.bind((IP[location], PORTNUM))
-    turn_socket.listen(10)
-    turn = ""
+    turn_socket.bind((IP, PORTNUM))
+    turn_socket.listen(1)
     while True:
         connection, address = turn_socket.accept()
-        print(address)
         received = connection.recv(1024)
-        if turn == "True" and len(received) > 0:
 
         if len(received) > 0:
-            turn = received.decode("utf-8")
-
-        connection.close()
-        if turn != "True":
+            recv_data = received.decode(data_encoding)
+            state = recv_data.split("_")[0]
+            print(state)
+            if state == "board":
+                draw_board(recv_data.split("_")[1::])
+            elif state == send_options[0]:
+                choice = display_options()
+                connection.send(bytes(turn_choices[choice], data_encoding))
+            connection.close()
             break
+
     turn_socket.close()
-    if turn == "bankrupt":
-        return True
-    else:
-        return False
 
-
+    return False
 
 
 join_game()
 Bankrupt = False
-while Bankrupt != True:
-    get_board()
-    Bankrupt = wait_turn()
-
+while not Bankrupt:
+    Bankrupt = get_state()
